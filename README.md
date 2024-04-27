@@ -1,66 +1,53 @@
-## Foundry
+# Solidity Smart Contracts for NFTs
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository contains Solidity smart contracts for Basic NFTs and Mood NFTs, along with code snippets for deploying and interacting with these contracts.
 
-Foundry consists of:
+## Basic NFTs
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### Overview
 
-## Documentation
+The Basic NFTs contract allows users to create and manage non-fungible tokens (NFTs) representing unique digital assets.
 
-https://book.getfoundry.sh/
+### Deployment
 
-## Usage
+To deploy the Basic NFTs contract, use the following steps:
 
-### Build
+1. Compile the contract using Solidity compiler version 0.8.20.
+2. Deploy the compiled contract to the Ethereum blockchain using a tool like Remix or Hardhat.
 
-```shell
-$ forge build
-```
+### Interacting with Basic NFTs
 
-### Test
+Once deployed, you can interact with the Basic NFTs contract using the following methods:
 
-```shell
-$ forge test
-```
+- Mint NFT: Create a new NFT with unique metadata.
+- Transfer NFT: Transfer ownership of an NFT to another address.
+- Get NFT Details: Retrieve metadata and owner information for a specific NFT.
 
-### Format
+## Mood NFTs
 
-```shell
-$ forge fmt
-```
+### Overview
 
-### Gas Snapshots
+The Mood NFTs contract extends the Basic NFTs functionality to include mood attributes for each NFT.
 
-```shell
-$ forge snapshot
-```
+### Deployment
 
-### Anvil
+Deploying the Mood NFTs contract follows similar steps to the Basic NFTs contract deployment:
 
-```shell
-$ anvil
-```
+1. Compile the contract with Solidity compiler version 0.8.20.
+2. Deploy the compiled contract to the Ethereum blockchain.
 
-### Deploy
+### Interacting with Mood NFTs
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+After deployment, interact with the Mood NFTs contract using these methods:
 
-### Cast
+- Set Mood: Set the mood attribute for a specific NFT.
+- Get Mood: Retrieve the mood attribute for an NFT.
+- Transfer NFT: Transfer ownership of a mood-enabled NFT.
 
-```shell
-$ cast <subcommand>
-```
+## Examples
 
-### Help
+Check out the code snippets in this repository for example Solidity code on deploying, minting, transferring, and managing NFTs using the Basic NFTs and Mood NFTs contracts.
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## License
+
+This project is licensed under the [MIT License](LICENSE).

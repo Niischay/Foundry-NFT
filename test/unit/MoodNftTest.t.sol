@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.20;
+
+import {Test, console} from "forge-std/Test.sol";
+import {MoodNft} from "../../src/MoodNft.sol";
+
+contract MoodNftTest is Test{
+
+    MoodNft moodNft;
+    string public constant HAPPY_SVG_URI = "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgd2lkdGg9IjQwMCIgIGhlaWdodD0iNDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIGZpbGw9InllbGxvdyIgcj0iNzgiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMyIvPg0KICA8ZyBjbGFzcz0iZXllcyI+DQogICAgPGNpcmNsZSBjeD0iNjEiIGN5PSI4MiIgcj0iMTIiLz4NCiAgICA8Y2lyY2xlIGN4PSIxMjciIGN5PSI4MiIgcj0iMTIiLz4NCiAgPC9nPg0KICA8cGF0aCBkPSJtMTM2LjgxIDExNi41M2MuNjkgMjYuMTctNjQuMTEgNDItODEuNTItLjczIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6IGJsYWNrOyBzdHJva2Utd2lkdGg6IDM7Ii8+DQo8L3N2Zz4=";
+    string public constant SAD_SVG_URI = "data:image/svg+xml;base64,PHN2ZyBpZD0iZVI3cTRvandLY1YxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMzAwIDMwMCIgc2hhcGUtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iIHRleHQtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50Ij48ZWxsaXBzZSByeD0iNzguMDYzMDEiIHJ5PSI3My44NjIzMSIgdHJhbnNmb3JtPSJtYXRyaXgoMS41MzM2NDUgMCAwIDEuNTkwMDUgMTUwIDE1MCkiIGZpbGw9IiNlN2VkMDAiIHN0cm9rZS13aWR0aD0iMCIvPjxlbGxpcHNlIHJ4PSIzMCIgcnk9IjMwIiB0cmFuc2Zvcm09Im1hdHJpeCguNDkwMDkgMCAwIDAuNDkwMDgzIDEwNC40OTI0MTYgMTIxLjgyMDMwMykiIHN0cm9rZS13aWR0aD0iMCIvPjxlbGxpcHNlIHJ4PSIzMCIgcnk9IjMwIiB0cmFuc2Zvcm09Im1hdHJpeCguNDkwMDkgMCAwIDAuNDkwMDgzIDE5Ni4yMDc3MDcgMTIxLjgyMDMwMykiIHN0cm9rZS13aWR0aD0iMCIvPjxwYXRoIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTpkYXJrZW4iIGQ9Ik0xMDEuNjkxOTUsMjA1LjgzNDMxYzE1LjM1MTkwOC00OC4zNjI4MDUsNzguMzM4NzctNTUuMzQ3MzQ1LDkzLjExNTUyLDIuODAwNDciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuNzUwMjkgMTEuMjAxODY3KSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjAuNiIvPjwvc3ZnPg==";
+
+    address USER = makeAddr("user");
+
+    function setUp() public{
+        moodNft = new MoodNft(SAD_SVG_URI,HAPPY_SVG_URI);
+    }
+
+    function testViewTokenURI() public{
+        vm.prank(USER);
+        moodNft.mintNft();
+        console.log(moodNft.tokenURI(0));
+    }
+
+}
